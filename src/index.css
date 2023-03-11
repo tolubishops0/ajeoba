@@ -17,27 +17,28 @@ code {
 @tailwind utilities;
 
 .td-class {
-  @apply text-[#13141a] font-semibold text-sm lg:text-base whitespace-nowrap pr-2 lg:p-0
+  @apply text-[#13141a] font-semibold text-xs sm:text-[0.7rem] whitespace-nowrap sm:whitespace-normal lg:text-base pr-2 lg:p-0
 } 
 
 .suspended-text {
-  @apply text-[#C5C7CD] text-xs mt-1 whitespace-nowrap pr-2 lg:p-0
+  @apply text-[#C5C7CD] text-xs sm:text-[0.7rem] mt-1 pr-2 lg:p-0
 }
 
 
 .high{
-  @apply rounded-md bg-[#F12B2C] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+  @apply rounded-md bg-[#F12B2C] px-2 py-1 text-xs sm:text-[0.7rem] font-semibold uppercase text-green-900 antialiased
 }
 
 .low{
-  @apply rounded-md bg-[#FEC400] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+  @apply rounded-md bg-[#FEC400] px-2 py-1 text-xs sm:text-[0.7rem] font-semibold uppercase text-green-900 antialiased
 }
 
 .normal{
-  @apply rounded-md bg-[#29CC97] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+  @apply rounded-md bg-[#29CC97] px-2 py-1 text-xs sm:text-[0.7rem] font-semibold uppercase text-green-900 antialiased
 
 }
 
 .paginaton{
   @apply justify-end items-end  text-right
 }
+

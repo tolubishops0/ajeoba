@@ -15,11 +15,11 @@ function App() {
 		<div>
 			<Routes>
 				<Route
-					path="/"
+					index
 					element={<OverView sideBar={sideBar} handleSideBar={handleSideBar} />}
 				/>
 				<Route
-					path="/tickets"
+					path="tickets"
 					element={<Tickets sideBar={sideBar} handleSideBar={handleSideBar} />}
 				/>
 			</Routes>

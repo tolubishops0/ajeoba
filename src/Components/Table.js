@@ -100,7 +100,7 @@ function Table() {
 	return (
 		<div>
 			<Toolbar />
-			<div className="py-8 px-6 bg-white border border-[#DFE0EB] rounded-xl">
+			<div className="py-8 px-4 bg-white border border-[#DFE0EB] rounded-xl">
 				<div className="flex justify-between font-semibold">
 					<h1 className="text-[#252733] ">All tickets</h1>
 					<div className="grid grid-cols-2 gap-8 text-[#4B506D]">
@@ -114,9 +114,9 @@ function Table() {
 						</span>
 					</div>
 				</div>
-				<div className="ml-4 flex items-center sm:ml-0 sm:justify-center mt-12">
+				<div className="mx-1 flex items-center sm:justify-center mt-12">
 					<table className="w-full">
-						<thead className="text-left sr-only lg:not-sr-only">
+						<thead className="text-left text-[0.7rem] lg:text-base lg:not-sr-only">
 							<tr className="text-[#9FA2B4]">
 								<th scope="col">Ticket details</th>
 								<th>Customer name</th>
@@ -132,11 +132,11 @@ function Table() {
 											<span className="flex items-center gap-4 ">
 												<img
 													src={item.avi}
-													className="hidden md:block border-2 rounded-full"
+													className="hidden lg:block border-2 rounded-full"
 													alt="avatar"
 												/>
 												<span>
-													<h1 className=" td-class">{item.issues}</h1>
+													<h1 className="td-class">{item.issues}</h1>
 													<p className="suspended-text">{item.updates}</p>
 												</span>
 											</span>

@@ -164,7 +164,7 @@ function ResponsiveDrawer(props) {
 						<MenuIcon fontSize="medium" />
 					</IconButton>
 
-					<h1 className="font-extrabold text-3xl text-left text-[#252733]">
+					<h1 className="font-extrabold text-xl md:text-3xl text-left text-[#252733]">
 						Overview
 					</h1>
 				</div>

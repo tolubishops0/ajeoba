@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import inputcheck from '../Assets/inputcheck.png';
-import Button from '@mui/material/Button';
-import Tooltp from '@mui/material/Tooltip';
 
 import {
 	AreaChart,
@@ -29,14 +27,11 @@ const data = [
 ];
 
 const CustomToolTip = ({ active, payload, label }) => {
-	if (active && payload && payload.length) {
+	if (active) {
 		return (
-			<div>
-				<Tooltp
-					arrow
-					sx={{ bgcolor: 'white', border: 'white', color: '#252733' }}>
-					<Button>{`${payload[0].value}, ${payload[1].value}`}</Button>
-				</Tooltp>
+			<div className="bg-white border-white  px-2">
+				<p className="text-[#3751FF]">{`Today: ${label} , ${payload[0].value}`}</p>
+				<p className="text-[#DFE0EB]">{`Yesterday: ${label} , ${payload[1].value}`}</p>
 			</div>
 		);
 	}
@@ -170,10 +165,10 @@ function App({ timeZone }) {
 						return (
 							<div key={index}>
 								<div className="group cursor-pointer flex flex-col gap-4 py-6 justify-center text-center bg-white  border border-[#DFE0EB] rounded-xl hover:border-[#3751FF]">
-									<h1 className="text-[#9FA2B4] font-bold text-2xl group-hover:text-[#3751FF]">
+									<h1 className="text-[#9FA2B4] font-bold text-base md:text-2xl group-hover:text-[#3751FF]">
 										{item.title}
 									</h1>
-									<p className="text-[#252733] text-6xl font-extrabold group-hover:text-[#3751FF]">
+									<p className="text-[#252733] text-4xl md:text-6xl font-extrabold group-hover:text-[#3751FF]">
 										{item.amt}
 									</p>
 								</div>
@@ -184,18 +179,18 @@ function App({ timeZone }) {
 				<Toolbar />
 			</div>
 
-			<div className=" lg:grid grid-cols-[70%_30%] bg-white border border-[#DFE0EB] rounded-xl">
-				<div>
-					<div className="mt-9 ml-8">
-						<h1 className="text-[#252733] font-bold text-xl ">
+			<div className="lg:grid lg:grid-cols-[75%_25%] lg:gap-0 flex flex-col gap-y-16 border-none lg:bg-white lg:border-[#DFE0EB] lg:rounded-xl">
+				<div className="bg-white border-[#DFE0EB] rounded-xl pb-16 lg:pb-0">
+					<div className="mt-4 ml-4 md:mt-9 md:ml-8">
+						<h1 className="text-[#252733] font-bold text-sm md:text-xl">
 							Today’s trends
 						</h1>
-						<p className="text-sm text-[#9FA2B4] font-normal">
+						<p className="text-xs md:text-sm text-[#9FA2B4] font-[200]">
 							{`as of ${formatterDateAndTime}`}
 						</p>
 					</div>
 					<ResponsiveContainer width="100%" height={400}>
-						<AreaChart data={data} margin={{ left: 40, right: 10, top: 60 }}>
+						<AreaChart data={data} margin={{ left: 30, right: -15, top: 60 }}>
 							<defs>
 								<linearGradient id="color" x1="0" y1="1" x2="1" y2="1">
 									<stop offset="0%" stopColor="#3751FF" stopOpacity={0.1} />
@@ -238,25 +233,29 @@ function App({ timeZone }) {
 								iconType="line"
 								align="right"
 								verticalAlign="top"
-								wrapperStyle={{ top: 0, right: '1rem', fontSize: '10px' }}
+								wrapperStyle={{
+									top: '1rem',
+									right: '0.5rem',
+									fontSize: '10px',
+								}}
 							/>
 						</AreaChart>
 					</ResponsiveContainer>
 				</div>
-
+			
 				<div>
-					<div className="flex flex-col border-l-2">
+					<div className="flex flex-col lg:border-0 bg-white border border-[#DFE0EB] rounded-xl">
 						{services.map((item, index) => {
 							return (
 								<div key={index}>
 									<div
-										className={`flex flex-col justify-center text-center py-6 px-6 ${
+										className={`flex flex-col lg:border-l-2 gap-y-1 justify-center text-center py-6 px-6 ${
 											index === services.length - 1 ? 'border-b-0' : 'border-b'
 										}`}>
-										<h1 className="text-[#9FA2B4] font-bold text-xl ">
+										<h1 className="text-[#9FA2B4] font-bold text-sm lg:text-base xl:text-lg ">
 											{item.title}
 										</h1>
-										<p className="text-[#252733] text-4xl font-extrabold ">
+										<p className="text-[#252733] font-extrabold text-2xl md:text-4xl ">
 											{item.val}
 										</p>
 									</div>
@@ -267,18 +266,18 @@ function App({ timeZone }) {
 				</div>
 			</div>
 			<Toolbar />
-			<div className="mt-10 gap-12 grid lg:grid-cols-2">
-				<div className="px-9 bg-white border border-[#DFE0EB] rounded-xl">
+			<div className=" gap-12 grid lg:grid-cols-2">
+				<div className="px-9 lg:px-5 bg-white border border-[#DFE0EB] rounded-xl">
 					<div className="flex justify-between items-center pt-9">
 						<span className="">
-							<h1 className="text-[#252733] font-semibold text-2xl">
+							<h1 className="text-[#252733] font-semibold text-lg lg:text-2xl">
 								Unresolved tickets
 							</h1>
 							<p className="text-[#9FA2B4] text-sm mt-2">
 								Group: <span className="text-[#4B506D]">Support</span>
 							</p>
 						</span>
-						<h1 className="text-[#3751FF]">
+						<h1 className="text-[#3751FF] text-sm cursor-pointer">
 							<Link to="#">View details</Link>
 						</h1>
 					</div>
@@ -287,8 +286,8 @@ function App({ timeZone }) {
 							return (
 								<div key={index}>
 									<div className="flex justify-between items-center py-6 font-medium border-t">
-										<p className="text-[#4B506D]">{item.title}</p>
-										<p className="text-[#9FA2B4] ">{item.val}</p>
+										<p className="text-[#4B506D] text-sm lg:text-base">{item.title}</p>
+										<p className="text-[#9FA2B4] text-sm lg:text-base">{item.val}</p>
 									</div>
 								</div>
 							);
@@ -296,13 +295,13 @@ function App({ timeZone }) {
 					</div>
 				</div>
 
-				<div className="px-9 bg-white border border-[#DFE0EB] rounded-xl">
+				<div className="px-9 lg:px-5 bg-white border border-[#DFE0EB] rounded-xl">
 					<div className="flex justify-between items-center pt-9">
 						<span>
-							<h1 className="text-[#9FA2B4] font-semibold text-2xl">Tasks</h1>
+							<h1 className="text-[#9FA2B4] font-semibold  text-lg lg:text-2xl">Tasks</h1>
 							<p className="text-[#9FA2B4] text-sm mt-2">Today</p>
 						</span>
-						<h1 className="text-[#3751FF]">
+						<h1 className="text-[#3751FF] text-sm cursor-pointer">
 							<Link to="#">View details</Link>
 						</h1>
 					</div>
@@ -329,11 +328,11 @@ function App({ timeZone }) {
 													{index ? null : <img src={inputcheck} alt="check" />}
 												</div>
 											</label>
-											<p className="text-[#4B506D]">{item.title}</p>
+											<p className="text-[#4B506D] text-sm lg:text-base">{item.title}</p>
 										</span>
 										<p
 											style={{ backgroundColor: item.color }}
-											className={'text-[#9FA2B4] px-2 py-1 rounded-lg'}>
+											className={'text-[#9FA2B4] px-2 py-1 rounded-lg text-sm lg:text-base'}>
 											{item.val}
 										</p>
 									</div>

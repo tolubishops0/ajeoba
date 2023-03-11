@@ -10,7 +10,7 @@ function Header({ mobileOpen }) {
 	return (
 		<div>
 			<div className="bg-[#F7F8FC] ">
-				<div className="flex justify-between items-center text-[#252733] py-6 px-4">
+				<div className="flex justify-between items-center text-[#252733] py-1 md:py-6 px-4">
 					<div className="hidden md:flex text-center">
 						{mobileOpen ? null : (
 							<h1 className="font-extrabold text-3xl text-left text-[#252733]">
