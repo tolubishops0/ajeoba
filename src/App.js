@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import OverView from './Components/OverView';
+import Tickets from './Components/Tickets';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [sideBar, setSideBar] = useState(false);
+
+	const handleSideBar = () => {
+		setSideBar(!setSideBar);
+	};
+
+	return (
+		<div>
+			<Routes>
+				<Route
+					path="/"
+					element={<OverView sideBar={sideBar} handleSideBar={handleSideBar} />}
+				/>
+				<Route
+					path="/tickets"
+					element={<Tickets sideBar={sideBar} handleSideBar={handleSideBar} />}
+				/>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

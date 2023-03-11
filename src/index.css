@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.td-class {
+  @apply text-[#13141a] font-semibold text-sm lg:text-base whitespace-nowrap pr-2 lg:p-0
+} 
+
+.suspended-text {
+  @apply text-[#C5C7CD] text-xs mt-1 whitespace-nowrap pr-2 lg:p-0
+}
+
+
+.high{
+  @apply rounded-md bg-[#F12B2C] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+}
+
+.low{
+  @apply rounded-md bg-[#FEC400] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+}
+
+.normal{
+  @apply rounded-md bg-[#29CC97] px-2 py-1 text-xs font-semibold uppercase text-green-900 antialiased
+
+}
+
+.paginaton{
+  @apply justify-end items-end  text-right
+}
